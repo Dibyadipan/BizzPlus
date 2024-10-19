@@ -7,7 +7,7 @@
 
 /* Navbar styles */
 header {
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     color: #fff;
     padding: 10px;
 }
@@ -19,13 +19,6 @@ nav {
     position: relative;
 }
 
-.logo a {
-    color: black;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-}
 
 .burger {
     display: none;
@@ -37,7 +30,7 @@ nav {
     width: 25px;
     height: 3px;
     background-color: #fff;
-    margin: 5px;
+    margin: 10px;
     transition: all 0.3s ease;
 }
 
@@ -93,7 +86,7 @@ nav {
 /* Hero Section */
 .hero-section {
     text-align: center;
-    padding: 20px 20px;
+    /* padding: 20px 20px; */
     /* height: 60vh; */
     /* display: flex; */
     /* flex-direction: column; */
@@ -258,7 +251,8 @@ nav {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    overflow: hidden; /* Hide overflow content */
+    overflow: hidden;
+    /* Hide overflow content */
 }
 
 
@@ -266,31 +260,50 @@ nav {
 /* Cards Container */
 .cards-container {
     display: flex;
-    gap: 20px;
+    gap: 40px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    padding: 20px 0;
-    max-width: 80vw; /* Limit the container width */
+    padding: 20px;
+    max-width: 90vw;
+    /* Limit the container width */
 }
 
 .cards-container::-webkit-scrollbar {
-    display: none; /* Hide scrollbar */
+    display: none;
+    /* Hide scrollbar */
 }
 
 /* Scroll Buttons */
 .scroll-btn {
-    background-color: #007bff; /* Primary color */
+    background-color: #007bff;
+    /* Primary color */
     color: white;
     border: none;
-    padding: 10px;
-    border-radius: 50%; /* Make it round */
+    padding: 15px;
+    width: 60px;
+    height: 50px;
+    /* Increased padding for better aesthetics */
+    border-radius: 50%;
+    /* Keeping it round */
     cursor: pointer;
-    font-size: 1.5rem; /* Increase size */
-    transition: background-color 0.3s ease;
+    font-size: 1.5rem;
+    /* Retaining size */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /*animation*/
+    display: flex;
+    /* Flexbox for centering content */
+    align-items: center;
+    /* Vertical centering */
+    justify-content: center;
+    /* Horizontal centering */
+
 }
 
 .scroll-btn:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #0056b3;
+    /* Darker shade on hover */
+    transform: scale(1.1);
+    /*make the button slightly bigger*/
 }
 
 
@@ -300,7 +313,8 @@ nav {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-width: 250px; /* Set minimum width for each card */
+    min-width: 250px;
+    /* Set minimum width for each card */
     text-align: center;
     padding: 20px;
     transition: transform 0.3s ease;
