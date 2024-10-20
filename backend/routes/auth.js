@@ -18,24 +18,17 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   try {
-    const user = await User.findOne({ username });
-    if (!user) {
-      console.log('User not found');
-      return res.status(401).send('Invalid username or password');
-    }
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      console.log('Password does not match');
-    }
-    if (isMatch) {
-      res.status(200).send('Login successful!');
-    } else {
-      res.status(401).send('Invalid username or password');
-    }
+      const user = await User.findOne({ username });
+      if (user && await bcrypt.compare(password, user.password)) {
+          return res.status(200).json({ message: 'Login successful' });
+      } else {
+          return res.status(401).json({ message: 'Invalid username or password' });
+      }
   } catch (err) {
-    res.status(500).send('Error logging in: ' + err.message);
+      res.status(500).json({ message: 'Error logging in', error: err.message });
   }
 });
+
 
 
 export default router;
