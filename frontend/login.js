@@ -1,12 +1,12 @@
-console.log('Script loaded!'); // Ensure the script is loading
+console.log('Script loaded!');
 
 document.getElementById('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    console.log('Login form submitted'); // Check if form submission is captured
+    console.log('Login form submitted');
 
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
-    console.log(`Username: ${username}, Password: ${password}`); // Verify form values
+    console.log(`Username: ${username}, Password: ${password}`);
 
     try {
         const response = await fetch('http://localhost:3000/auth/login', {
@@ -15,13 +15,15 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
             body: JSON.stringify({ username, password })
         });
 
-        const data = await response.json(); // Attempt to parse the response JSON
+        console.log('Response status:', response.status);
+        const data = await response.json();
+        console.log('Response data:', data);
 
         if (response.ok) {
-            alert('Login successful');
+            alert(data.message);
         } else {
-            console.error('Login failed:', data);
-            alert('Invalid username or password');
+            console.error('Login failed:', data.message);
+            alert(`Invalid username or password: ${data.message}`);
         }
     } catch (error) {
         console.error('Error during login:', error);
