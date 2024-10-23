@@ -1,0 +1,4 @@
+Uri: https://app.memorisely.com/auth/sign-up
+File Name: D:\Work\Qunova\Bizz+\Assets\Memorisely\app.memorisely.com\auth\sign-up.html
+Content Type: text/html
+

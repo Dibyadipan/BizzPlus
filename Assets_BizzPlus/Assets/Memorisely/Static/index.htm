@@ -4,47 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="header">
         <div class="logo">
-            <img src="/frontend/imgs/logo.jpg" alt="Logo">
+            <img src="logo.png" alt="Logo">
         </div>
     </div>
 
-    <div class="login-container" id="login">
+    <div class="container">
         <div class="signup-form">
-            <h2>Login</h2>
-            <br>
-            <p class="description">Distributor</p>
+            <h1>Sign up</h1>
+            <p class="description">Memorisely is the learning platform for UX/UI Designers to build skills & confidence</p>
             
             <button class="google-btn">
-                <img src="/Assets_BizzPlus/Assets/Memorisely/Static/google-icon.png" alt="Google Icon"> Continue with Google
+                <img src="google-icon.png" alt="Google Icon"> Continue with Google
             </button>
             
             <div class="separator">
                 <hr class="line"><span>or</span><hr class="line">
             </div>
 
-            <form id="login-form">
-                <div class="input-group">
-                    <label for="login-username">Username</label>
-                    <input type="text" id="login-username" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="login-password" required>
-                </div>
-                <button type="submit">Login</button>
+            <form id="signup-form" action="#">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email address..." required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password..." required>
+                
+                <button type="submit" class="email-btn" id="submit-btn" disabled>Continue with email</button>
             </form>
 
             <p class="terms-text">By clicking “Continue with Google/Email” you acknowledge that you have read and understood, and agree to Memorisely <a href="#">Terms</a> & <a href="#">Privacy</a>.</p>
         </div>
 
         <div class="footer">
-            <span>Don't have an account?</span> 
-            <a href="#">Sign Up</a>
+            <span>Already have an account?</span> 
+            <a href="#">Sign in</a>
             <div class="footer-links">
                 <a href="#">Privacy</a>
                 <a href="#">Terms</a>
