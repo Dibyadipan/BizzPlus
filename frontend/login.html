@@ -52,26 +52,6 @@
         </div>
     </div>
 
-    <script>
-        // Enable/Disable submit button based on input fields
-        const emailInput = document.getElementById('email');
-        const passwordInput = document.getElementById('password');
-        const submitButton = document.getElementById('submit-btn');
-
-        function toggleSubmitButton() {
-            if (emailInput.value && passwordInput.value) {
-                submitButton.disabled = false;
-                submitButton.style.backgroundColor = '#444';  // Active button color
-                submitButton.style.cursor = 'pointer';
-            } else {
-                submitButton.disabled = true;
-                submitButton.style.backgroundColor = '#ccc';  // Disabled button color
-                submitButton.style.cursor = 'not-allowed';
-            }
-        }
-
-        emailInput.addEventListener('input', toggleSubmitButton);
-        passwordInput.addEventListener('input', toggleSubmitButton);
-    </script>
+    <script src="login.js"></script>
 </body>
 </html>
