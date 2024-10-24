@@ -1,39 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
-    <link rel="stylesheet" href="register.css" />
-  </head>
-  <body>
-    <div class="register-container">
-      <h2>Register</h2>
-      <form id="register-form">
-        <div class="input-group">
-          <label for="company-name">Company Name</label>
-          <input type="text" id="company-name" required />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Manufacturer/Distributor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Registration - Bizz+</h2>
+
+        <!-- Switcher for Manufacturer/Distributor -->
+        <div class="text-center mb-4">
+            <button class="btn btn-primary" id="manufacturerBtn">Register as Manufacturer</button>
+            <button class="btn btn-secondary" id="distributorBtn">Register as Distributor</button>
         </div>
-        <div class="input-group">
-          <label for="username">Username</label>
-          <input type="text" id="username" required />
+
+        <!-- Timeline Progress Bar -->
+        <div class="progress mb-4">
+            <div class="progress-bar" id="progressBar" role="progressbar"></div>
         </div>
-        <div class="input-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" required />
-        </div>
-        <div class="input-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" required />
-        </div>
-        <div class="input-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" required />
-        </div>
-        <button type="submit">Register</button>
-      </form>
+
+        <!-- Manufacturer Form -->
+        <form id="manufacturerForm" class="form-container">
+            <!-- Level 1: Select Niche -->
+            <div class="timeline-step active-step" id="manufacturerStep1">
+                <h4>Let’s get you Started (Manufacturer)</h4>
+                <label>Select Niche/Sector:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Textiles" id="nicheTextiles">
+                    <label class="form-check-label" for="nicheTextiles">Textiles</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Electronics" id="nicheElectronics">
+                    <label class="form-check-label" for="nicheElectronics">Electronics</label>
+                </div>
+                <button type="button" class="btn btn-primary mt-3" onclick="nextStep('manufacturer', 1)">Next</button>
+            </div>
+
+            <!-- Level 2: Brand Details -->
+            <div class="timeline-step" id="manufacturerStep2">
+                <h4>Great! Fill in your details to Continue</h4>
+                <div class="mb-3">
+                    <label for="brandName" class="form-label">Brand Name:</label>
+                    <input type="text" class="form-control" id="brandName">
+                </div>
+                <div class="mb-3">
+                    <label for="brandImage" class="form-label">Image:</label>
+                    <input type="file" class="form-control" id="brandImage">
+                </div>
+                <div class="mb-3">
+                    <label for="brandLocation" class="form-label">Location:</label>
+                    <input type="text" class="form-control" id="brandLocation">
+                </div>
+                <div class="mb-3">
+                    <label for="gstNo" class="form-label">GST No:</label>
+                    <input type="text" class="form-control" id="gstNo">
+                </div>
+                <div class="mb-3">
+                    <label for="tinNo" class="form-label">TIN No:</label>
+                    <input type="text" class="form-control" id="tinNo">
+                </div>
+                <div class="mb-3">
+                    <label for="turnover" class="form-label">Turnover:</label>
+                    <input type="text" class="form-control" id="turnover">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="nextStep('manufacturer', 2)">Next</button>
+            </div>
+
+            <!-- Level 3: Executive Details -->
+            <div class="timeline-step" id="manufacturerStep3">
+                <h4>One last step before you enter the world of Bizz+</h4>
+                <div class="mb-3">
+                    <label for="execName" class="form-label">Executive/Lead Name:</label>
+                    <input type="text" class="form-control" id="execName">
+                </div>
+                <div class="mb-3">
+                    <label for="execEmail" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="execEmail">
+                </div>
+                <div class="mb-3">
+                    <label for="execContact" class="form-label">Contact No.:</label>
+                    <input type="text" class="form-control" id="execContact">
+                </div>
+                <div class="mb-3">
+                    <label for="execSocials" class="form-label">Social Profiles (LinkedIn, Twitter, etc.):</label>
+                    <input type="text" class="form-control" id="execSocials">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="nextStep('manufacturer', 3)">Next</button>
+            </div>
+
+            <!-- Level 4: Final Step -->
+            <div class="timeline-step" id="manufacturerStep4">
+                <h4>Congratulations! You are ready to grow your business 4X times</h4>
+                <div class="mb-3">
+                    <label for="investment" class="form-label">Enter the amount of investment you are looking for:</label>
+                    <input type="text" class="form-control" id="investment">
+                </div>
+                <button type="submit" class="btn btn-success">Submit & Join Bizz+</button>
+            </div>
+        </form>
+
+        <!-- Distributor Form -->
+        <form id="distributorForm" class="form-container" style="display: none;">
+            <!-- Level 1: Select Niche -->
+            <div class="timeline-step active-step" id="distributorStep1">
+                <h4>Let’s get you Started (Distributor)</h4>
+                <label>Select Niche (Already in business):</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Food" id="nicheFood">
+                    <label class="form-check-label" for="nicheFood">Food</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Pharma" id="nichePharma">
+                    <label class="form-check-label" for="nichePharma">Pharma</label>
+                </div>
+                <button type="button" class="btn btn-primary mt-3" onclick="nextStep('distributor', 1)">Next</button>
+            </div>
+
+            <!-- Level 2: Personal Details -->
+            <div class="timeline-step" id="distributorStep2">
+                <h4>Great! Fill in your details to Continue</h4>
+                <div class="mb-3">
+                    <label for="distributorName" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="distributorName">
+                </div>
+                <div class="mb-3">
+                    <label for="profileImage" class="form-label">Profile Image:</label>
+                    <input type="file" class="form-control" id="profileImage">
+                </div>
+                <div class="mb-3">
+                    <label for="distributorEmail" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="distributorEmail">
+                </div>
+                <div class="mb-3">
+                    <label for="distributorContact" class="form-label">Contact No:</label>
+                    <input type="text" class="form-control" id="distributorContact">
+                </div>
+                <div class="mb-3">
+                    <label for="distributorSocials" class="form-label">Social Profiles (LinkedIn, etc.):</label>
+                    <input type="text" class="form-control" id="distributorSocials">
+                </div>
+                <div class="mb-3">
+                    <label for="distributorGST" class="form-label">GST No:</label>
+                    <input type="text" class="form-control" id="distributorGST">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="nextStep('distributor', 2)">Next</button>
+            </div>
+
+            <!-- Level 3: Experience and Location -->
+            <div class="timeline-step" id="distributorStep3">
+                <h4>One last step before you enter the world of Bizz+</h4>
+                <div class="mb-3">
+                    <label for="experience" class="form-label">Experience (years):</label>
+                    <input type="text" class="form-control" id="experience">
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location:</label>
+                    <input type="text" class="form-control" id="location">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="nextStep('distributor', 3)">Next</button>
+            </div>
+
+            <!-- Level 4: Final Step -->
+            <div class="timeline-step" id="distributorStep4">
+                <h4>Congratulations! You are ready to grow your business 4X times</h4>
+                <div class="mb-3">
+                    <label for="investmentCapacity" class="form-label">Enter your investment capacity:</label>
+                    <input type="text" class="form-control" id="investmentCapacity">
+                </div>
+                <button type="submit" class="btn btn-success">Submit & Join Bizz+</button>
+            </div>
+        </form>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="register.js"></script>
-  </body>
+</body>
 </html>
