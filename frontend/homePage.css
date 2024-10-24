@@ -9,16 +9,14 @@
 header {
     /* background-color: whitesmoke; */
     color: #fff;
-    padding: 5px;
-    margin-left: 20px;
-    margin-right: 25px;
+    padding: 10px;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position:relative;
+    position: relative;
 }
 
 
@@ -98,8 +96,8 @@ nav {
 .hero-title {
     font-size: 2.5rem;
     font-weight: 700;
-    line-height: 1;
-    margin-top: 50px;
+    line-height: 1.5;
+    margin-top: 10px;
 }
 
 .hero-title span {
@@ -232,7 +230,7 @@ nav {
 .banner-image {
     flex: 0 0 150px;
     border-radius: 50%;
-    overflow:clip;
+    overflow: hidden;
 }
 
 .banner-image img {
@@ -342,12 +340,10 @@ nav {
 }
 
 .profile-pic {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 10px;
-    overflow: hidden;
-    object-fit: cover;
 }
 
 h3 {
@@ -462,18 +458,20 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    
+    padding: 10px;
 }
 
 .image-section img {
     max-width: 100%;
     border-radius: 10px;
-    clip-path: polygon(50% 0%, 100% 40%, 100% 100%, 0% 100%, 0% 40%);
-    width: 100%;
-    height: 100%;
+    background-color: #b3d4f7;
+    flex: 1;
+    display: flex;
     object-fit: cover;
-
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    clip-path: polygon(50% 0%, 100% 40%, 100% 100%, 0% 100%, 0% 40%);
 }
 
 
